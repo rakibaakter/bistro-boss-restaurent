@@ -1,3 +1,4 @@
+import About from "../HomeComponents/About/About";
 import Banner from "../HomeComponents/Banner/Banner";
 import CallUs from "../HomeComponents/CallUs/CallUs";
 import CategorySlider from "../HomeComponents/Categories/CategorySlider";
@@ -9,6 +10,7 @@ const Home = () => {
     <div>
       <Banner />
       <CategorySlider />
+      <About />
       <OurMenu />
       <CallUs />
       <Feature />
