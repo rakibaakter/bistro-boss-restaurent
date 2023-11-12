@@ -44,7 +44,12 @@ const Navbar = () => {
             {navLinks}
           </ul>
         </div>
-        <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+        <div className="uppercase pl-12">
+          <h2 className="font-extrabold text-3xl ">Bistro boss</h2>
+          <h3 style={{ letterSpacing: "5px" }} className="font-bold text-2xl ">
+            Restaurant
+          </h3>
+        </div>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 space-x-2">{navLinks}</ul>
