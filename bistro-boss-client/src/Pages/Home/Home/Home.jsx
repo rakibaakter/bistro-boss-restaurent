@@ -3,6 +3,7 @@ import Banner from "../HomeComponents/Banner/Banner";
 import CallUs from "../HomeComponents/CallUs/CallUs";
 import CategorySlider from "../HomeComponents/Categories/CategorySlider";
 import Feature from "../HomeComponents/Feature/Feature";
+import Testimonials from "../HomeComponents/Testimonials/Testimonials";
 import OurMenu from "../OurMenu/OurMenu";
 
 const Home = () => {
@@ -14,6 +15,7 @@ const Home = () => {
       <OurMenu />
       <CallUs />
       <Feature />
+      <Testimonials />
     </div>
   );
 };
