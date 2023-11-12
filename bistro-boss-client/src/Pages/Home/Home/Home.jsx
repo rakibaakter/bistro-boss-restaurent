@@ -1,4 +1,5 @@
 import Banner from "../HomeComponents/Banner/Banner";
+import CallUs from "../HomeComponents/CallUs/CallUs";
 import CategorySlider from "../HomeComponents/Categories/CategorySlider";
 import OurMenu from "../OurMenu/OurMenu";
 
@@ -8,6 +9,7 @@ const Home = () => {
       <Banner />
       <CategorySlider />
       <OurMenu />
+      <CallUs />
     </div>
   );
 };
