@@ -1,19 +1,33 @@
 import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
+  // const active = {
+  //   color: "orange",
+  // };
+
   const navLinks = (
     <>
       <li>
-        <NavLink to="/">Home</NavLink>
+        <NavLink
+          to="/"
+          className={({ isActive }) => (isActive ? "text-amber-500" : "")}
+        >
+          Home
+        </NavLink>
       </li>
       <li>
-        <NavLink>Home</NavLink>
+        <NavLink to="/dashboard">Dashboard</NavLink>
       </li>
       <li>
-        <NavLink>Home</NavLink>
+        <NavLink
+          to="/menu"
+          className={({ isActive }) => (isActive ? "text-amber-500" : "")}
+        >
+          Our Menu
+        </NavLink>
       </li>
       <li>
-        <NavLink>Home</NavLink>
+        <NavLink to="/shop">Our Shop</NavLink>
       </li>
     </>
   );
@@ -39,7 +53,7 @@ const Navbar = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 "
+            className="uppercase text-black menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 "
           >
             {navLinks}
           </ul>
@@ -52,7 +66,9 @@ const Navbar = () => {
         </div>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 space-x-2">{navLinks}</ul>
+        <ul className="uppercase menu menu-horizontal px-1 space-x-2">
+          {navLinks}
+        </ul>
       </div>
       <div className="navbar-end">
         <a className="btn">Button</a>
