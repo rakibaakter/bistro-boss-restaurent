@@ -9,6 +9,7 @@ import SectionTitle from "../../Components/SectionTitle/SectionTitle";
 import MenuContainer from "../../Shared/Menu/MenuContainer";
 import ParallaxBg from "../../Shared/ParallaxBG/ParallaxBg";
 import BlackBorderBtn from "../../Components/Buttons/BlackBorderBtn";
+import { Helmet } from "react-helmet-async";
 
 const Menu = () => {
   const [menu] = useMenu();
@@ -32,6 +33,10 @@ const Menu = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Bistro Boss | Menu</title>
+      </Helmet>
+
       <ParallaxBg
         img={bannerImg}
         title={bannerTitle}
