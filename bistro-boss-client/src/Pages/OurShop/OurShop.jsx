@@ -33,7 +33,7 @@ const OurShop = () => {
         title={"our shop"}
         description={"Would you like to try a dish?"}
       ></ParallaxBg>
-      <div className="my-8 md:my-12 px-4 md:px-20 lg:px-72 ">
+      <div className="my-8 md:my-12 px-4 md:px-20 lg:px-72 text-center">
         <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
           <TabList className="uppercase font-bold">
             <Tab>Salads</Tab>
