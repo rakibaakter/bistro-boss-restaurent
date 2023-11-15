@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import ItemCard from "./ItemCard";
 import BlackBorderBtn from "../../Components/Buttons/BlackBorderBtn";
+import { Link } from "react-router-dom";
 
-const MenuContainer = ({ menu, btnValue }) => {
+const MenuContainer = ({ menu }) => {
   console.log(menu);
   return (
     <div>
@@ -11,7 +12,6 @@ const MenuContainer = ({ menu, btnValue }) => {
           <ItemCard key={item._id} item={item} />
         ))}
       </div>
-      <BlackBorderBtn value={btnValue}></BlackBorderBtn>
     </div>
   );
 };

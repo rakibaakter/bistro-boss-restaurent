@@ -10,6 +10,7 @@ import MenuContainer from "../../Shared/Menu/MenuContainer";
 import ParallaxBg from "../../Shared/ParallaxBG/ParallaxBg";
 import BlackBorderBtn from "../../Components/Buttons/BlackBorderBtn";
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 
 const Menu = () => {
   const [menu] = useMenu();
@@ -24,9 +25,10 @@ const Menu = () => {
   const bannerTitle = "Our Menu";
   const bannerDescription = "Would you like to try a dish?";
 
-  const dessertTitle = "Desserts";
+  const offeredTitle = "offered";
+  const dessertTitle = "desserts";
   const pizzaTitle = "pizza";
-  const soupTitle = "Soup";
+  const soupTitle = "soup";
   const saladTitle = "salad";
   const description =
     "Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.";
@@ -48,7 +50,10 @@ const Menu = () => {
           heading={"Don't miss"}
           title={"TODAY'S Offer"}
         ></SectionTitle>
-        <MenuContainer menu={offeredMenu} btnValue={btnValue} />
+        <MenuContainer menu={offeredMenu} />
+        <Link to={`/shop/${offeredTitle}`}>
+          <BlackBorderBtn value={btnValue} />
+        </Link>
       </section>
       {/* desserts section */}
       <section className="text-center mb-20">
@@ -57,7 +62,10 @@ const Menu = () => {
           title={dessertTitle}
           description={description}
         />
-        <MenuContainer menu={dessertsMenu} btnValue={btnValue} />
+        <MenuContainer menu={dessertsMenu} />
+        <Link to={`/shop/${dessertTitle}`}>
+          <BlackBorderBtn value={btnValue} />
+        </Link>
       </section>
       {/* salad section */}
       <section className="text-center mb-20">
@@ -66,7 +74,10 @@ const Menu = () => {
           title={saladTitle}
           description={description}
         />
-        <MenuContainer menu={saladMenu} btnValue={btnValue} />
+        <MenuContainer menu={saladMenu} />
+        <Link to={`/shop/${saladTitle}`}>
+          <BlackBorderBtn value={btnValue} />
+        </Link>
       </section>
       {/* pizza section */}
       <section className="text-center mb-20">
@@ -75,12 +86,18 @@ const Menu = () => {
           title={pizzaTitle}
           description={description}
         />
-        <MenuContainer menu={pizzaMenu} btnValue={btnValue} />
+        <MenuContainer menu={pizzaMenu} />
+        <Link to={`/shop/${pizzaTitle}`}>
+          <BlackBorderBtn value={btnValue} />
+        </Link>
       </section>
       {/* soup section */}
       <section className="text-center mb-20">
         <ParallaxBg img={soupImg} title={soupTitle} description={description} />
-        <MenuContainer menu={soupMenu} btnValue={btnValue} />
+        <MenuContainer menu={soupMenu} />
+        <Link to={`/shop/${soupTitle}`}>
+          <BlackBorderBtn value={btnValue} />
+        </Link>
       </section>
     </div>
   );
