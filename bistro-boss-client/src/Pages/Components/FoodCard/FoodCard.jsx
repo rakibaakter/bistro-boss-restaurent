@@ -9,6 +9,9 @@ const FoodCard = ({ item }) => {
         <img src={image} alt="" />
       </figure>
       <div className="card-body text-center">
+        <p className="bg-black font-bold text-white px-4 py-2 absolute right-2 top-1 rounded-md">
+          ${price}
+        </p>
         <h2 className="card-title justify-center">{name}</h2>
         <p>{recipe}</p>
         <div className="card-actions justify-center">
