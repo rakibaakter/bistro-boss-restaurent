@@ -44,9 +44,11 @@ const Menu = () => {
       />
       {/* offered section */}
       <section className="text-center mb-20">
-        <SectionTitle heading={"Don't miss"} title={"TODAY'S"}></SectionTitle>
-        <MenuContainer menu={offeredMenu} />
-        <BlackBorderBtn value={btnValue}></BlackBorderBtn>
+        <SectionTitle
+          heading={"Don't miss"}
+          title={"TODAY'S Offer"}
+        ></SectionTitle>
+        <MenuContainer menu={offeredMenu} btnValue={btnValue} />
       </section>
       {/* desserts section */}
       <section className="text-center mb-20">
@@ -55,8 +57,7 @@ const Menu = () => {
           title={dessertTitle}
           description={description}
         />
-        <MenuContainer menu={dessertsMenu} />
-        <BlackBorderBtn value={btnValue}></BlackBorderBtn>
+        <MenuContainer menu={dessertsMenu} btnValue={btnValue} />
       </section>
       {/* salad section */}
       <section className="text-center mb-20">
@@ -65,8 +66,7 @@ const Menu = () => {
           title={saladTitle}
           description={description}
         />
-        <MenuContainer menu={saladMenu} />
-        <BlackBorderBtn value={btnValue}></BlackBorderBtn>
+        <MenuContainer menu={saladMenu} btnValue={btnValue} />
       </section>
       {/* pizza section */}
       <section className="text-center mb-20">
@@ -75,14 +75,12 @@ const Menu = () => {
           title={pizzaTitle}
           description={description}
         />
-        <MenuContainer menu={pizzaMenu} />
-        <BlackBorderBtn value={btnValue}></BlackBorderBtn>
+        <MenuContainer menu={pizzaMenu} btnValue={btnValue} />
       </section>
       {/* soup section */}
       <section className="text-center mb-20">
         <ParallaxBg img={soupImg} title={soupTitle} description={description} />
-        <MenuContainer menu={soupMenu} />
-        <BlackBorderBtn value={btnValue}></BlackBorderBtn>
+        <MenuContainer menu={soupMenu} btnValue={btnValue} />
       </section>
     </div>
   );
