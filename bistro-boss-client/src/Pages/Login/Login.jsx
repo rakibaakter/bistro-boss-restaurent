@@ -8,6 +8,7 @@ import {
 import { useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import useAuth from "../../Hooks/UseAuth";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const captchaRef = useRef(null);
@@ -19,8 +20,8 @@ const Login = () => {
   }, []);
 
   const handleCaptchaValidation = (e) => {
-    e.preventDefault();
-    const user_captcha_value = captchaRef.current.value;
+    // e.preventDefault();
+    const user_captcha_value = e.target.value;
     if (validateCaptcha(user_captcha_value)) {
       setDisable(false);
     } else {
@@ -38,9 +39,30 @@ const Login = () => {
     signIn(email, password)
       .then((userCredential) => {
         console.log(userCredential);
+        Swal.fire({
+          title: "user logged in ",
+          showClass: {
+            popup: `
+              animate__animated
+              animate__fadeInUp
+              animate__faster
+            `,
+          },
+          hideClass: {
+            popup: `
+              animate__animated
+              animate__fadeOutDown
+              animate__faster
+            `,
+          },
+        });
       })
       .catch((error) => {
-        console.log(error.message);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: error.message,
+        });
       });
   };
 
@@ -93,19 +115,18 @@ const Login = () => {
                 </label>
 
                 <input
+                  onBlur={handleCaptchaValidation}
                   type="text"
-                  ref={captchaRef}
                   name="captchaValue"
                   placeholder="enter the captch above"
                   className="my-2 w-full input input-bordered"
-                  required
                 />
-                <button
+                {/* <button
                   onClick={handleCaptchaValidation}
                   className="btn btn-outline mt-2 w-full"
                 >
                   Validate Captcha
-                </button>
+                </button> */}
               </div>
               <div className="form-control mt-6">
                 <input

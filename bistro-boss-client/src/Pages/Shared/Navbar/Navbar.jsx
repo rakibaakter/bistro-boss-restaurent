@@ -1,9 +1,39 @@
 import { NavLink } from "react-router-dom";
+import useAuth from "../../../Hooks/UseAuth";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
-  // const active = {
-  //   color: "orange",
-  // };
+  const { user, logOut } = useAuth();
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        Swal.fire({
+          title: "Sign Out Successfully",
+          showClass: {
+            popup: `
+                animate__animated
+                animate__fadeInUp
+                animate__faster
+              `,
+          },
+          hideClass: {
+            popup: `
+                animate__animated
+                animate__fadeOutDown
+                animate__faster
+              `,
+          },
+        });
+      })
+      .catch((error) => {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: error.message,
+        });
+      });
+  };
 
   const navLinks = (
     <>
@@ -30,7 +60,11 @@ const Navbar = () => {
         <NavLink to="/shop/salad">Our Shop</NavLink>
       </li>
       <li>
-        <NavLink to="/authentication/login">Log In</NavLink>
+        {user ? (
+          <button onClick={handleLogOut}>Log Out</button>
+        ) : (
+          <NavLink to="/authentication/login">Log In</NavLink>
+        )}
       </li>
     </>
   );
