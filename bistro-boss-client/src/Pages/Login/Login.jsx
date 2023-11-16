@@ -102,7 +102,7 @@ const Login = () => {
             </div>
             <label className="  text-center my-2 text-orange-300">
               New Here?{" "}
-              <Link to="/authentication/register" className="font-bold">
+              <Link to="/authentication/sign-up" className="font-bold">
                 Create a New Account
               </Link>
             </label>
