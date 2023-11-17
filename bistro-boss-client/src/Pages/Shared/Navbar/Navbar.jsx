@@ -107,9 +107,7 @@ const Navbar = () => {
           {navLinks}
         </ul>
       </div>
-      <div className="navbar-end">
-        <a className="btn">Button</a>
-      </div>
+      <div className="navbar-end">{user && <p>{user?.displayName}</p>}</div>
     </div>
   );
 };

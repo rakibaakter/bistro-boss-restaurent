@@ -7,7 +7,7 @@ import React from "react";
 import Swal from "sweetalert2";
 
 const SignUp = () => {
-  const { createUser } = useAuth();
+  const { createUser, updateUser } = useAuth();
   //   console.log(createUser);
   const {
     register,
@@ -20,6 +20,12 @@ const SignUp = () => {
     createUser(data.email, data.password)
       .then((userCredential) => {
         console.log(userCredential);
+        updateUser(data.name, data.photoUrl)
+          .then(() => {})
+          .catch((error) => {
+            console.log(error.message);
+          });
+
         Swal.fire({
           title: "Sign Up Successfully",
           showClass: {
@@ -74,6 +80,18 @@ const SignUp = () => {
                 {errors.name?.type === "required" && (
                   <p className="text-red-600"> Name is required</p>
                 )}
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Photo Url (optional)</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="photo url"
+                  name="photoUrl"
+                  {...register("photoUrl")}
+                  className="input input-bordered"
+                />
               </div>
               <div className="form-control">
                 <label className="label">
