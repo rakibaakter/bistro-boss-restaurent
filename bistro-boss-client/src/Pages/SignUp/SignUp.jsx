@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import loginImg from "../../assets/others/authentication2.png";
 import { useForm } from "react-hook-form";
 import { Helmet } from "react-helmet-async";
@@ -8,7 +8,9 @@ import Swal from "sweetalert2";
 
 const SignUp = () => {
   const { createUser, updateUser } = useAuth();
-  //   console.log(createUser);
+  const navigate = useNavigate();
+  // const location = useLocation();
+
   const {
     register,
     formState: { errors, reset },
@@ -43,6 +45,7 @@ const SignUp = () => {
               `,
           },
         });
+        navigate("/");
       })
       .catch((error) => {
         Swal.fire({

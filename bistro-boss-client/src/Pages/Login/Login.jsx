@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import loginImg from "../../assets/others/authentication2.png";
 import {
   loadCaptchaEnginge,
@@ -14,6 +14,10 @@ const Login = () => {
   const captchaRef = useRef(null);
   const [disable, setDisable] = useState(true);
   const { signIn } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.pathname || "/";
 
   useEffect(() => {
     loadCaptchaEnginge(2);
@@ -56,6 +60,7 @@ const Login = () => {
             `,
           },
         });
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         Swal.fire({

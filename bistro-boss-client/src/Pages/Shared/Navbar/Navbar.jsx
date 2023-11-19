@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
+  // console.log(user?.photoURL);
 
   const handleLogOut = () => {
     logOut()
@@ -61,7 +62,17 @@ const Navbar = () => {
       </li>
       <li>
         {user ? (
-          <button onClick={handleLogOut}>Log Out</button>
+          <div className="flex flex-col lg:flex-row gap-4">
+            <button onClick={handleLogOut}>Log Out</button>
+            <div>
+              <img
+                className="h-10 w-12 rounded-full"
+                src={user?.photoURL}
+                alt=""
+              />
+              <span>{user?.displayName}</span>
+            </div>
+          </div>
         ) : (
           <NavLink to="/authentication/login">Log In</NavLink>
         )}
@@ -69,7 +80,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar bg-black text-white opacity-50 fixed z-10">
+    <div className="navbar bg-black text-white opacity-70 fixed z-10 font-bold">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -90,7 +101,7 @@ const Navbar = () => {
           </label>
           <ul
             tabIndex={0}
-            className="uppercase text-black menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 "
+            className="uppercase text-black menu menu-sm dropdown-content mt-3 z-50 p-2 shadow bg-white  rounded-box w-52 "
           >
             {navLinks}
           </ul>
@@ -102,12 +113,11 @@ const Navbar = () => {
           </h3>
         </div>
       </div>
-      <div className="navbar-center hidden lg:flex">
-        <ul className="uppercase menu menu-horizontal px-1 space-x-2">
+      <div className="navbar-end hidden lg:flex">
+        <ul className="uppercase menu menu-horizontal px-1 space-x-2 items-center">
           {navLinks}
         </ul>
       </div>
-      <div className="navbar-end">{user && <p>{user?.displayName}</p>}</div>
     </div>
   );
 };
