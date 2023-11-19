@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import useAuth from "../../../Hooks/UseAuth";
 import Swal from "sweetalert2";
+import { MdOutlineShoppingCart } from "react-icons/md";
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
@@ -58,29 +59,30 @@ const Navbar = () => {
         </NavLink>
       </li>
       <li>
-        <NavLink to="/shop/salad">Our Shop</NavLink>
+        <NavLink
+          to="/shop/salad"
+          className={({ isActive }) => (isActive ? "text-amber-500" : "")}
+        >
+          Our Shop
+        </NavLink>
       </li>
       <li>
-        {user ? (
-          <div className="flex flex-col lg:flex-row gap-4">
-            <button onClick={handleLogOut}>Log Out</button>
-            <div>
-              <img
-                className="h-10 w-12 rounded-full"
-                src={user?.photoURL}
-                alt=""
-              />
-              <span>{user?.displayName}</span>
-            </div>
+        <NavLink
+          to=""
+          className={({ isActive }) => (isActive ? "text-amber-500" : "")}
+        >
+          <div className="flex relative">
+            <MdOutlineShoppingCart className="text-3xl text-amber-600 " />
+            <span className="badge absolute  -right-3 -top-3 bg-white text-amber-600 h-6 w-6">
+              00
+            </span>
           </div>
-        ) : (
-          <NavLink to="/authentication/login">Log In</NavLink>
-        )}
+        </NavLink>
       </li>
     </>
   );
   return (
-    <div className="navbar bg-black text-white opacity-70 fixed z-10 font-bold">
+    <nav className="navbar bg-black text-white opacity-70 fixed z-10 font-bold">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -106,19 +108,41 @@ const Navbar = () => {
             {navLinks}
           </ul>
         </div>
-        <div className="uppercase pl-12">
-          <h2 className="font-extrabold text-3xl ">Bistro boss</h2>
-          <h3 style={{ letterSpacing: "5px" }} className="font-bold text-2xl ">
+        <div className="uppercase md:pl-12">
+          <h2 className="md:font-extrabold md:text-3xl ">Bistro boss</h2>
+          <h3
+            // style={{ letterSpacing: "5px" }}
+            className="md:font-bold md:text-2xl md:tracking-[5px] "
+          >
             Restaurant
           </h3>
         </div>
       </div>
-      <div className="navbar-end hidden lg:flex">
+      <div className="navbar-center hidden w-2/3 lg:flex lg:justify-end">
         <ul className="uppercase menu menu-horizontal px-1 space-x-2 items-center">
           {navLinks}
         </ul>
       </div>
-    </div>
+      <div className="navbar-end pr-2">
+        {user ? (
+          <div className="flex items-center gap-2 md:gap-4">
+            <div className="flex flex-col justify-center">
+              <img
+                className="h-8 w-6 md:h-8 md:w-10 rounded-full mx-auto"
+                src={user?.photoURL}
+                alt=""
+              />
+              <span>{user?.displayName}</span>
+            </div>
+            <button onClick={handleLogOut} className="font-normal">
+              Log Out
+            </button>
+          </div>
+        ) : (
+          <NavLink to="/authentication/login">Log In</NavLink>
+        )}
+      </div>
+    </nav>
   );
 };
 
