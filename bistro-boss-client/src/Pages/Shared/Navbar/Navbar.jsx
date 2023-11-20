@@ -2,9 +2,12 @@ import { NavLink } from "react-router-dom";
 import useAuth from "../../../Hooks/UseAuth";
 import Swal from "sweetalert2";
 import { MdOutlineShoppingCart } from "react-icons/md";
+import useCart from "../../../Hooks/useCart";
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
+  const [cart] = useCart();
+
   // console.log(user?.photoURL);
 
   const handleLogOut = () => {
@@ -74,7 +77,7 @@ const Navbar = () => {
           <div className="flex relative">
             <MdOutlineShoppingCart className="text-3xl text-amber-600 " />
             <span className="badge absolute  -right-3 -top-3 bg-white text-amber-600 h-6 w-6">
-              00
+              {cart.length}
             </span>
           </div>
         </NavLink>
