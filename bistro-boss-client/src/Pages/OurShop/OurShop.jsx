@@ -12,7 +12,7 @@ const OurShop = () => {
   const { category } = useParams();
   console.log(category);
 
-  const categories = ["salad", "soup", "pizza", "dessert", "drinks"];
+  const categories = ["salad", "soup", "pizza", "desserts", "drinks"];
   const selectedIndex = categories.indexOf(category);
   console.log(selectedIndex);
 

@@ -11,7 +11,7 @@ import useAuth from "../../Hooks/UseAuth";
 import Swal from "sweetalert2";
 
 const Login = () => {
-  const captchaRef = useRef(null);
+  // const captchaRef = useRef(null);
   const [disable, setDisable] = useState(true);
   const { signIn } = useAuth();
   const navigate = useNavigate();
