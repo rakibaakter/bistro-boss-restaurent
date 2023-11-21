@@ -71,7 +71,7 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          to=""
+          to="/dashboard/my-cart"
           className={({ isActive }) => (isActive ? "text-amber-500" : "")}
         >
           <div className="flex relative">
