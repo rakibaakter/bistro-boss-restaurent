@@ -44,7 +44,7 @@ const Navbar = () => {
     <>
       <li>
         <NavLink
-          to="/"
+          to="/dashboard"
           className={({ isActive }) => (isActive ? "text-amber-500" : "")}
         >
           Home

@@ -103,7 +103,7 @@ const DashboardNavbar = () => {
   );
 
   return (
-    <div>
+    <div className=" bg-orange-400 h-full">
       <div className="drawer lg:drawer-open ">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col items-center justify-center">
@@ -112,7 +112,7 @@ const DashboardNavbar = () => {
             htmlFor="my-drawer-2"
             className="btn btn-ghost drawer-button lg:hidden "
           >
-            <MdDashboard className="text-4xl text-orange-400 -ml-24 md:-ml-80 " />
+            <MdDashboard className="text-4xl text-orange-400 " />
           </label>
         </div>
         <div className="drawer-side ">
@@ -121,7 +121,7 @@ const DashboardNavbar = () => {
             aria-label="close sidebar"
             className="drawer-overlay"
           ></label>
-          <ul className="menu p-4 md:w-80 min-h-full text-base-content bg-orange-400 md:text-xl font-medium uppercase">
+          <ul className="menu p-4 md:w-80  text-base-content md:text-xl font-medium uppercase">
             {/* Sidebar content here */}
             {UserNavItems}
             <div className="divider"></div>
