@@ -9,8 +9,8 @@ const DashboardLayout = () => {
       </div>
 
       <div
-        className="flex-1
-       text-center px-32"
+        className="flex-1 max-h-screen overflow-auto
+       text-center px-4 md:px-16 lg:px-32"
       >
         <Outlet />
       </div>
