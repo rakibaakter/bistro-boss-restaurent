@@ -1,16 +1,22 @@
 import { NavLink } from "react-router-dom";
 import {
   FaBitbucket,
+  FaBook,
   FaCalendar,
   FaCreditCard,
   FaHome,
+  FaList,
   FaShoppingBag,
+  FaUsers,
+  FaUtensils,
 } from "react-icons/fa";
 import { LuMenu } from "react-icons/lu";
 import { FaBookBookmark, FaRankingStar } from "react-icons/fa6";
 import { MdDashboard } from "react-icons/md";
 
 const DashboardNavbar = () => {
+  const isAdmin = true;
+
   const mainNavItems = (
     <>
       <li>
@@ -43,7 +49,57 @@ const DashboardNavbar = () => {
     </>
   );
 
-  const UserNavItems = (
+  const adminNavItems = (
+    <>
+      <li>
+        <NavLink
+          to="/dashboard/admin-home"
+          className={({ isActive }) => (isActive ? "text-white" : "")}
+        >
+          <FaHome />
+          Admin Home
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/dashboard/add-item"
+          className={({ isActive }) => (isActive ? "text-white" : "")}
+        >
+          <FaUtensils />
+          Add Items
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/dashboard/manage-items"
+          className={({ isActive }) => (isActive ? "text-white" : "")}
+        >
+          <FaList />
+          Manage Items
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/dashboard/manage-bookings"
+          className={({ isActive }) => (isActive ? "text-white" : "")}
+        >
+          <FaBook />
+          Manage Bookings
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/dashboard/all-users"
+          className={({ isActive }) => (isActive ? "text-white" : "")}
+        >
+          <FaUsers />
+          All Users
+        </NavLink>
+      </li>
+    </>
+  );
+
+  const userNavItems = (
     <>
       <li>
         <NavLink
@@ -126,7 +182,7 @@ const DashboardNavbar = () => {
            bg-orange-400 text-base-content md:text-xl font-medium uppercase"
           >
             {/* Sidebar content here */}
-            {UserNavItems}
+            {isAdmin ? adminNavItems : userNavItems}
             <div className="divider"></div>
             {mainNavItems}
           </ul>

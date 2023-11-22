@@ -9,6 +9,7 @@ import SignUp from "../Pages/SignUp/SignUp";
 import DashboardLayout from "../Dashboard/DashboardLayout/DashboardLayout";
 import MyCart from "../Dashboard/UserAccess/MyCart/MyCart";
 import PrivateRoutes from "../Routes/PrivateRoutes";
+import AllUsers from "../Dashboard/AdminAccess/AllUsers/AllUsers";
 
 const Router = createBrowserRouter([
   {
@@ -34,11 +35,11 @@ const Router = createBrowserRouter([
     element: <AuthenticationLayout />,
     children: [
       {
-        path: "/authentication/login",
+        path: "login",
         element: <Login />,
       },
       {
-        path: "/authentication/sign-up",
+        path: "sign-up",
         element: <SignUp />,
       },
     ],
@@ -52,8 +53,12 @@ const Router = createBrowserRouter([
     ),
     children: [
       {
-        path: "/dashboard/my-cart",
+        path: "my-cart",
         element: <MyCart />,
+      },
+      {
+        path: "all-users",
+        element: <AllUsers />,
       },
     ],
   },
