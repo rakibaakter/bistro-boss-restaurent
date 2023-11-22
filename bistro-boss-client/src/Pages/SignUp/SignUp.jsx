@@ -5,6 +5,7 @@ import { Helmet } from "react-helmet-async";
 import useAuth from "../../Hooks/UseAuth";
 import React from "react";
 import Swal from "sweetalert2";
+import SocialSIgnIn from "../Components/SocialSignIn/SocialSIgnIn";
 
 const SignUp = () => {
   const { createUser, updateUser } = useAuth();
@@ -151,6 +152,7 @@ const SignUp = () => {
                 </Link>
               </label>
             </form>
+            <SocialSIgnIn />
           </div>
         </div>
       </div>

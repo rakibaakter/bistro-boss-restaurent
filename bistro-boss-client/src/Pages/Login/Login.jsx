@@ -9,6 +9,7 @@ import { useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import useAuth from "../../Hooks/UseAuth";
 import Swal from "sweetalert2";
+import SocialSIgnIn from "../Components/SocialSignIn/SocialSIgnIn";
 
 const Login = () => {
   // const captchaRef = useRef(null);
@@ -148,6 +149,7 @@ const Login = () => {
                 </Link>
               </label>
             </form>
+            <SocialSIgnIn />
           </div>
         </div>
       </div>
