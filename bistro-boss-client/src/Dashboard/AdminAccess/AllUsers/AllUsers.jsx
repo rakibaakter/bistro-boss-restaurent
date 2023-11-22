@@ -43,6 +43,22 @@ const AllUsers = () => {
     });
   };
 
+  const handleMakeAdmin = (id) => {
+    axiosSecure.patch(`/users/${id}`).then((res) => {
+      console.log(res);
+      if (res.data.modifiedCount) {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Admin Created",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        refetch();
+      }
+    });
+  };
+
   return (
     <section className="pb-12">
       <SectionTitle heading={"How many??"} title={"Manage All Users"} />
@@ -76,9 +92,16 @@ const AllUsers = () => {
                     <h2 className="font-medium">{user.email}</h2>
                   </td>
                   <td>
-                    <button className="btn  text-white bg-orange-300 md:text-2xl">
-                      <FaUser />
-                    </button>
+                    {user?.role === "admin" ? (
+                      "Admin"
+                    ) : (
+                      <button
+                        onClick={() => handleMakeAdmin(user._id)}
+                        className="btn  text-white bg-orange-300 md:text-2xl"
+                      >
+                        <FaUser />
+                      </button>
+                    )}
                   </td>
                   <th>
                     <button
