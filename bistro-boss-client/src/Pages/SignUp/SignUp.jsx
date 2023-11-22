@@ -6,9 +6,11 @@ import useAuth from "../../Hooks/UseAuth";
 import React from "react";
 import Swal from "sweetalert2";
 import SocialSIgnIn from "../Components/SocialSignIn/SocialSIgnIn";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 const SignUp = () => {
   const { createUser, updateUser } = useAuth();
+  const axiosPublic = useAxiosPublic();
   const navigate = useNavigate();
   // const location = useLocation();
 
@@ -24,29 +26,47 @@ const SignUp = () => {
       .then((userCredential) => {
         console.log(userCredential);
         updateUser(data.name, data.photoUrl)
-          .then(() => {})
+          .then((res) => {
+            const newUser = {
+              name: data.name,
+              email: data.email,
+            };
+            axiosPublic
+              .post("/users", newUser)
+              .then((res) => {
+                if (res.data.insertedId) {
+                  console.log("added to database");
+                  Swal.fire({
+                    title: "Sign Up Successfully",
+                    showClass: {
+                      popup: `
+                        animate__animated
+                        animate__fadeInUp
+                        animate__faster
+                      `,
+                    },
+                    hideClass: {
+                      popup: `
+                        animate__animated
+                        animate__fadeOutDown
+                        animate__faster
+                      `,
+                    },
+                  });
+                  navigate("/");
+                }
+              })
+              .catch((error) => {
+                Swal.fire({
+                  icon: "error",
+                  title: "Oops...",
+                  text: error.message,
+                });
+              });
+          })
           .catch((error) => {
             console.log(error.message);
           });
-
-        Swal.fire({
-          title: "Sign Up Successfully",
-          showClass: {
-            popup: `
-                animate__animated
-                animate__fadeInUp
-                animate__faster
-              `,
-          },
-          hideClass: {
-            popup: `
-                animate__animated
-                animate__fadeOutDown
-                animate__faster
-              `,
-          },
-        });
-        navigate("/");
       })
       .catch((error) => {
         Swal.fire({
