@@ -21,7 +21,7 @@ const Testimonials = () => {
       });
   }, []);
 
-  console.log(reviews);
+  // console.log(reviews);
 
   return (
     <section className="my-8 md:my-20 px-4 md:px-20 lg:px-72 ">

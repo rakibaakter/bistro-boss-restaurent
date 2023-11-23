@@ -5,10 +5,9 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 // import required modules
-import { Navigation } from "swiper/modules";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faQuoteLeft } from "@fortawesome/free-solid-svg-icons";
-import Rating from "react-rating";
+
 import StarRatings from "react-star-ratings";
 
 const Review = ({ review }) => {

@@ -13,9 +13,10 @@ import {
 import { LuMenu } from "react-icons/lu";
 import { FaBookBookmark, FaRankingStar } from "react-icons/fa6";
 import { MdDashboard } from "react-icons/md";
+import useAdmin from "../../Hooks/useAdmin";
 
 const DashboardNavbar = () => {
-  const isAdmin = true;
+  const isAdmin = useAdmin();
 
   const mainNavItems = (
     <>
